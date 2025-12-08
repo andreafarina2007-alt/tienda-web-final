@@ -3,7 +3,7 @@ import cors from "cors"
 import { products, Product } from "./data/products"
 
 const app = express()
-const PORT = 4000
+const PORT = 4001
 
 app.use(cors())
 app.use(express.json())

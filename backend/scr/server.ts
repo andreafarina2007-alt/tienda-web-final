@@ -34,4 +34,8 @@ app.post("/api/cart", (req, res) => {
 
 app.get("/api/cart", (req, res) => res.json(cart))
 
+app.get("/", (req, res) => {
+  res.send("Backend funcionando correctamente")
+})
+
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`))
