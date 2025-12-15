@@ -1,23 +1,24 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom"
-import Navbar from "./components/Navbar"
-import HomePage from "./pages/HomePage"
+import React from "react"
+import { Routes, Route, Link } from "react-router-dom"
 import ProductsPage from "./pages/ProductsPage"
+import ProductPage from "./pages/ProductPage"
 import CartPage from "./pages/CartPage"
-import { CartProvider } from "./context/CartContext"
 
-function App() {
+export default function App() {
   return (
-    <CartProvider>
-      <BrowserRouter>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/productos" element={<ProductsPage />} />
-          <Route path="/carrito" element={<CartPage />} />
-        </Routes>
-      </BrowserRouter>
-    </CartProvider>
+    <div>
+      <nav style={{ padding: "1rem", background: "#eee", display: "flex", gap: "1rem" }}>
+        <Link to="/">Inicio</Link>
+        <Link to="/productos">Productos</Link>
+        <Link to="/carrito">Carrito</Link>
+      </nav>
+
+      <Routes>
+        <Route path="/" element={<h1>Bienvenido a la tienda</h1>} />
+        <Route path="/productos" element={<ProductsPage />} />
+        <Route path="/producto/:id" element={<ProductPage />} />
+        <Route path="/carrito" element={<CartPage />} />
+      </Routes>
+    </div>
   )
 }
-
-export default App
